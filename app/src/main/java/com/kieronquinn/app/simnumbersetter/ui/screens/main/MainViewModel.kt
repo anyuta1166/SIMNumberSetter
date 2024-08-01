@@ -107,10 +107,7 @@ class MainViewModelImpl(
             }
         } catch (e: Exception) {
             null
-        } ?: run {
-            state.emit(State.Error(ErrorType.NO_XPOSED))
-            return@launch
-        }
+        } ?: ""
         state.emit(State.Loaded(number))
     }
 
@@ -122,10 +119,7 @@ class MainViewModelImpl(
             }
         } catch (e: Exception) {
             null
-        } ?: run {
-            state.emit(State.Error(ErrorType.NO_XPOSED))
-            return@launch
-        }
+        } ?: false
         customNumber.emit(null)
         delay(1000L)
         if (result) {
